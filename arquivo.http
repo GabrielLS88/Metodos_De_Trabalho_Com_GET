@@ -1,0 +1,48 @@
+#consulta cliente
+
+GET https://jsonplaceholder.typicode.com/users 
+
+###
+
+#Puxa Id Cliente
+POST https://rbx.wantel.com.br/routerbox/ws/rbx_server_json.php
+Authorization: BHA1A7W5MQ1NZ8QCJYKAANO4W9JTYG
+Content-Type: application/json
+
+{
+  "ConsultaClientes": {
+      "Autenticacao": {
+          "ChaveIntegracao": "GOSV53BJC3PNGYUUVFCFSU3SE4411R"
+      },
+      "Filtro": "CNPJ_CNPF = 03408871507"
+  }
+}
+###
+
+#Puxar Boletos Abertos
+POST https://rbx.wantel.com.br/routerbox/ws_json/ws_json.php
+Authorization: BHA1A7W5MQ1NZ8QCJYKAANO4W9JTYG
+authentication_key: GOSV53BJC3PNGYUUVFCFSU3SE4411R
+Content-Type: application/json
+
+{
+  "get_unpaid_document":
+  {
+    "customer_id": 46440,
+    "account_number": 3
+  }
+}
+###
+
+#Puxar Link Boleto Cliente
+POST https://rbx.wantel.com.br/routerbox/ws_json/ws_json.php?=
+Authorization: BHA1A7W5MQ1NZ8QCJYKAANO4W9JTYG
+authentication_key: GOSV53BJC3PNGYUUVFCFSU3SE4411R
+Content-Type: application/json
+
+{
+   "get_banking_billet": {
+      "document_id": 4325535
+   }
+}
+###
